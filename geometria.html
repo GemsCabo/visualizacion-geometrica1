@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización Geométrica</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        svg {
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            background-color: #f8f8f8;
+            /* Opcional: agregar una grilla ligera */
+            /* background-image: linear-gradient(to right, #eee 1px, transparent 1px), linear-gradient(to bottom, #eee 1px, transparent 1px);
+            background-size: 20px 20px; */
+        }
+        /* Estilos para los elementos SVG */
+        .lineL {
+            stroke: blue;
+            stroke-width: 2;
+        }
+        .circle {
+            stroke: black;
+            stroke-width: 1;
+            fill-opacity: 0.1;
+        }
+        .circle1 {
+            fill: lightcoral;
+        }
+        .circle2 {
+            fill: lightskyblue;
+        }
+        .centerPoint {
+            fill: red;
+        }
+         .projectionPoint {
+            fill: green;
+        }
+        .segmentAB {
+            stroke: purple;
+            stroke-width: 1.5;
+        }
+        .projectionLine {
+            stroke: gray;
+            stroke-width: 1;
+            stroke-dasharray: 4 2; /* Línea punteada */
+        }
+        .trapezoid {
+            fill: rgba(255, 215, 0, 0.3); /* Amarillo dorado semi-transparente */
+            stroke: darkgoldenrod;
+            stroke-width: 1;
+        }
+        .labelText {
+            font-size: 0.8px; /* Ajustar tamaño según viewBox */
+            font-family: sans-serif;
+            fill: black;
+            text-anchor: middle; /* Centrar texto horizontalmente */
+            dominant-baseline: middle; /* Centrar texto verticalmente */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Visualización del Ejercicio de Geometría</h1>
+    <p>
+        Círculo 1 (C1): Centro A=(2, 5), Radio r1=3 <br>
+        Círculo 2 (C2): Centro B=(9, 2), Radio r2=4 <br>
+        Línea L: y = -x + 4 <br>
+        Proyecciones: P_A de A sobre L, P_B de B sobre L.
+    </p>
+
+    <svg width="750" height="500" viewBox="0 0 15 10">
+        <line class="lineL" x1="-1" y1="9" x2="8" y2="0" /> 
+        <text class="labelText" x="7.5" y="0.5">L (y=-x+4)</text>
+
+        <polygon class="trapezoid" points="2,3  9,6  5.5,9.5  0.5,4.5" />
+
+        <circle class="circle circle1" cx="2" cy="3" r="3" />
+        
+        <circle class="circle circle2" cx="9" cy="6" r="4" />
+
+        <line class="segmentAB" x1="2" y1="3" x2="9" y2="6" />
+
+        <line class="projectionLine" x1="2" y1="3" x2="0.5" y2="4.5" /> <line class="projectionLine" x1="9" y1="6" x2="5.5" y2="9.5" /> <circle class="centerPoint" cx="2" cy="3" r="0.15" />
+        <text class="labelText" x="2.3" y="2.7">A (2,5)</text> 
+        
+        <circle class="centerPoint" cx="9" cy="6" r="0.15" />
+        <text class="labelText" x="9.3" y="5.7">B (9,2)</text> 
+
+        <circle class="projectionPoint" cx="0.5" cy="4.5" r="0.15" />
+        <text class="labelText" x="0.2" y="4.9">P_A</text>
+
+         <circle class="projectionPoint" cx="5.5" cy="9.5" r="0.15" />
+        <text class="labelText" x="5.8" y="9.9">P_B</text>
+
+    </svg>
+
+    <div>
+        <h3>Leyenda:</h3>
+        <ul>
+            <li><span style="color:red;">Puntos Rojos:</span> Centros de los círculos (A, B)</li>
+            <li><span style="color:lightcoral;">Círculo Rosa:</span> Círculo C1</li>
+            <li><span style="color:lightskyblue;">Círculo Azul Claro:</span> Círculo C2</li>
+            <li><span style="color:blue;">Línea Azul:</span> Recta L</li>
+            <li><span style="color:purple;">Línea Morada:</span> Segmento AB</li>
+            <li><span style="color:gray; border-bottom: 1px dashed gray;">Líneas Punteadas Grises:</span> Proyecciones perpendiculares (AP_A, BP_B)</li>
+            <li><span style="color:green;">Puntos Verdes:</span> Puntos de proyección en L (P_A, P_B)</li>
+            <li><span style="background-color: rgba(255, 215, 0, 0.3); border: 1px solid darkgoldenrod;">Área Amarilla:</span> Trapecio Rectángulo A B P_B P_A</li>
+        </ul>
+    </div>
+
+</body>
+</html>
